@@ -4,6 +4,8 @@ import morgan from "morgan"
 import cors from "cors"
 import dotenv from "dotenv" 
 
+import productRoutes from "./routes/productRoutes.js"; // Import product routes
+
 dotenv.config() // Load environment variables from .env file
 
 const app = express();
@@ -12,8 +14,8 @@ const PORT = process.env.PORT || 3000; // Use PORT from environment variables or
 
 console.log(PORT)
 
-app.use(express.json()) // to parse JSON bodies in requests
-app.use(cors()) // to enable CORS for all routes
+app.use(express.json()) // Parse JSON bodies in requests
+app.use(cors()) // Enable CORS for all routes
 //helmet use to check the security of the application with setting multiple headers
 app.use(helmet())
 
@@ -25,10 +27,7 @@ app.get("/", (req, res) => {
     res.send("Hello! This message from backend")
 })
 
-app.get("/route1", (req, res) => {
-    console.log(res.getHeaders())
-    res.send("Hello! This message from route named route1")
-})
+app.use("/api/products", productRoutes); // Use product routes for /api/products to access products
 
 app.listen(PORT, () => {
     console.log("Server is running on port "+PORT);
