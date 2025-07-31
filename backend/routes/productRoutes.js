@@ -1,17 +1,22 @@
 import express from "express";
-import { getAllProducts,createProduct } from "../controllers/productController.js";
+import { getProducts, getProduct, createProduct, updateProduct, deleteProduct } from "../controllers/productController.js";
 
 const router = express.Router();
 
-router.get("/", getAllProducts
-     
 //Use to get all products
+router.get("/", getProducts);
+     
+//Use to get a specific product
+router.get("/:id", getProduct);
 
-);
+//Use to create a new product
+router.post("/", createProduct);
 
-router.post("/", createProduct
+//Use to update existing product
+router.put("/:id", updateProduct);
 
-    //Use to create a new product
-);
+//Use to delete existing product
+router.put("/:id", deleteProduct);
+
 
 export default router; //export the router
