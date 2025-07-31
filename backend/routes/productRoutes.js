@@ -16,7 +16,7 @@ router.post("/", createProduct);
 router.put("/:id", updateProduct);
 
 //Use to delete existing product
-router.put("/:id", deleteProduct);
+router.delete("/:id", deleteProduct);
 
 
 export default router; //export the router
