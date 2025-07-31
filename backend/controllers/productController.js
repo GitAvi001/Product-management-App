@@ -1,3 +1,5 @@
+
+
 //Business logic to retrieve all products
 export const getAllProducts = async(req, res) => {
 
