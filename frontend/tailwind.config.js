@@ -8,5 +8,22 @@ export default {
     extend: {},
   },
   plugins: [daisyui],
+  daisyui: { // Themes need for frontend from daisyui  
+    themes: [
+      "pastel",
+      "retro",
+      "coffee",
+      "forest",
+      "cyberpunk",
+      "synthwave",
+      "luxury",
+      "autumn",
+      "valentine",
+      "aqua",
+      "business",
+      "night",
+      "dracula",
+    ],
+  },
 }
 
