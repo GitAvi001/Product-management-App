@@ -6,6 +6,7 @@ import dotenv from "dotenv"
 
 import productRoutes from "./routes/productRoutes.js" 
 import { sql } from "./config/db.js";
+import { aj } from "./lib/arcjet.js"
 
 dotenv.config() // Load environment variables from .env file
 
@@ -26,6 +27,43 @@ app.use(morgan("dev"))
 app.get("/", (req, res) => {
     console.log(res.getHeaders())
     res.send("Hello! This message from backend")
+})
+
+//Apply rate limiting to all routes
+app.use(async (req, res, next) => {
+
+  try{
+
+    const decision = await aj.protect(req, {
+        requested:1 // Each request consumes 1 token
+    })
+
+    if (decision.isDenied()){
+      if(decision.reason.isRateLimit()){
+        res.status(429).json({error: "Too many requests",})
+      }else if(decision.reason.isBot()){
+        res.status(403).json({error: "Access denied for bots",})
+      }else{
+        res.status(403).json({error: "Forbidden"})
+    }
+    return 
+  }
+  //spoofed bots - bots that try to bypass the bot detection
+
+  //Check if any spoofed bots are detected
+  if (decision.isSpoofedBot()) {
+    console.log("Spoofed bot detected:", decision.spoofedBot);
+    res.status(403).json({ error: "Access denied for spoofed bots" });
+    return;
+  }
+  next() //Call next function if not denied
+  }catch(error) {
+
+    console.log("Arcject error occurs",error)
+    next(error)
+
+  }
+
 })
 
 app.use("/api/products", productRoutes); // Use product routes for /api/products to access products

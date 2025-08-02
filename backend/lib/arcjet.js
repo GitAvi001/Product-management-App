@@ -23,8 +23,8 @@ export const aj=arcject({
         //Token bucket method used for rate limiting
         tokenBucket({
             mode: "LIVE",
-            refillRate: 5, //Refilling 5 tokens per second
-            interval: 10, //Allows 5 tokens per second
+            refillRate: 5, //Refilling 5 tokens after each 10 seconds
+            interval: 10, 
             capacity: 10, //Allows client to burst up to 10 requests
         }),
 
