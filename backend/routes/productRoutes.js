@@ -8,7 +8,7 @@ router.get("/", getProducts);
      
 //Use to get a specific product
 router.get("/:id", getProduct);
-
+ 
 //Use to create a new product
 router.post("/", createProduct);
 
