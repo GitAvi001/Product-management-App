@@ -3,7 +3,7 @@ import { EditIcon, Trash2Icon } from "lucide-react";
 import { useProductStore } from "../store/useProductStore";
 
 function ProductCard(product) {
-    console.log(product)
+    const { deleteProduct } = useProductStore();
   return 
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">ProductCard
     {/* PRODUCT IMAGE */}
