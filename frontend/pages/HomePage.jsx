@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import useProductStore from '../stores/useProductStore'
+import ProductCard from '../components/ProductCard'
 
 function HomePage() {
   
