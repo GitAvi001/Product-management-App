@@ -44,19 +44,20 @@ npm run dev
 ```
 
 ## Environment variables configuration(.env)
+```bash
 PORT=<PORT_NUMBER>
 
-# Connection string for PostgreSQL database(example)
+### Connection string for PostgreSQL database(example)
 'postgresql://<PGUSER>:<PGPASSWORD>@<PGHOST>/<PGDATABASE>?sslmode=require&channel_binding=require'
 
-# PostgreSQL database configuration with Neon(example)
-```bash
+### PostgreSQL database configuration with Neon(example)
+
 PGUSER='<PGUSER>'
 PGHOST='PGHOST>'
 PGPASSWORD='<PGPASSWORD>'
 PGDATABASE='<PGDATABASE>'
 
-# Arcjet configuration
+### Arcjet configuration
 ARCJET_KEY=
 ARCJET_ENV=
 
