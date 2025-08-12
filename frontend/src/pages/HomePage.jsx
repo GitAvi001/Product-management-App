@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import useProductStore from '../stores/useProductStore'
-import ProductCard from '../components/ProductCard'
+import useProductStore from '../store/useProductStore'
+import ProductCard from './ProductCard.jsx'
+import AddProductModal from '../components/AddProductModal'
 
 function HomePage() {
   
@@ -25,6 +26,8 @@ function HomePage() {
           <RefreshCwIcon className="size-5" />
       </button>
     </div>
+
+    <AddProductModal/>
 
     {products.length === 0 && !loading && (
         <div className="flex flex-col justify-center items-center h-96 space-y-4">

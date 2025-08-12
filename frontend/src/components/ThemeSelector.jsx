@@ -1,6 +1,6 @@
 import React from 'react'
 import { PaletteIcon } from 'lucide-react'
-import { THEMES } from "../constants";
+import { THEMES } from "../constants/index.js";
 
 function ThemeSelector() {
     return (
