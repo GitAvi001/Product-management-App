@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useProductStore from '../store/useProductStore'
+import { useProductStore } from '../../store/useProductStore.js';
 import ProductCard from './ProductCard.jsx'
 import AddProductModal from '../components/AddProductModal'
 
