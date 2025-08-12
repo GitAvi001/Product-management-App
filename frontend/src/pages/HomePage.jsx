@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useProductStore } from '../../store/useProductStore.js';
+import  useProductStore  from '../../store/useProductStore.js';
 import ProductCard from './ProductCard.jsx'
 import AddProductModal from '../components/AddProductModal'
 
@@ -10,8 +10,9 @@ function HomePage() {
   useEffect(()=>{
 
     fetchProducts();
-  }, [fetchProducts])
-  return
+  }, [fetchProducts]);
+
+  return(
   
   <main className="max-w-6xl mx-auto px-4 py-8 ">
     <div className="flex justify-between items-center mb-8">
@@ -56,6 +57,7 @@ function HomePage() {
       )}
 
     </main>
+  );
 }
 
 export default HomePage
