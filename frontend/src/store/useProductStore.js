@@ -11,6 +11,38 @@ products:[],
 loading: false,
 error:null,
 
+formData:{
+  name:"",
+  price:"",
+  image:"",
+
+}, 
+
+setFormData: (formData)=>set({ formData }),
+resetForm: ()=>set({formData: {name:"", price:"", image:""}}),
+
+addProduct: async(e)=>{
+  //used to prevent default behavior when an event triggers
+  e.preventDefault();
+  set({loading: true});
+
+  try{
+    const {formData} = get()
+
+    await axios.post(`${BASE_URL}/api/products`, formData);
+    await get().fetchProducts();
+    get().resetForm();
+    toast.success("Product added successfully");
+    //close the modal
+  }catch(error){
+      console.log("Error when adding a product");
+      toast.error("Something wrong when adding a product")
+  }finally{
+    set({loading:false});
+  }
+},
+
+
 fetchProducts: async () => {
 
     set({loading: true});
