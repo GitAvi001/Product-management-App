@@ -53,7 +53,7 @@ PORT=<PORT_NUMBER>
 ### PostgreSQL database configuration with Neon(example)
 
 PGUSER='<PGUSER>'
-PGHOST='PGHOST>'
+PGHOST='<PGHOST>'
 PGPASSWORD='<PGPASSWORD>'
 PGDATABASE='<PGDATABASE>'
 
